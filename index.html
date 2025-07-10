@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Channel Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Authentication Section -->
+        <div id="auth-section" class="card">
+            <div class="card-header">
+                <h3><i class="fas fa-lock"></i> Connect to Telegram</h3>
+            </div>
+            <div class="card-body">
+                <form id="auth-form">
+                    <div class="form-group">
+                        <label for="bot-token"><i class="fas fa-robot"></i> Bot Token</label>
+                        <input type="password" id="bot-token" required
+                            placeholder="123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ">
+                        <small>Get from @BotFather</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="channel-id"><i class="fas fa-hashtag"></i> Channel ID</label>
+                        <input type="text" id="channel-id" required placeholder="@channelname or -1001234567890">
+                        <small>Use numeric ID for private channels</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-plug"></i> Connect
+                    </button>
+                </form>
+                <div id="auth-status"></div>
+            </div>
+        </div>
+
+        <!-- Post Creation Section -->
+        <div id="post-section" class="card" style="display: none;">
+            <div class="card-header">
+                <h3><i class="fas fa-edit"></i> Create Post</h3>
+            </div>
+            <div class="card-body">
+                <!-- Formatting Toolbar -->
+                <div class="toolbar">
+                    <button type="button" class="btn-tool" data-format="bold" title="Bold">
+                        <i class="fas fa-bold"></i>
+                    </button>
+                    <button type="button" class="btn-tool" data-format="italic" title="Italic">
+                        <i class="fas fa-italic"></i>
+                    </button>
+                    <button type="button" class="btn-tool" data-format="underline" title="Underline">
+                        <i class="fas fa-underline"></i>
+                    </button>
+                    <button type="button" class="btn-tool" data-format="strikethrough" title="Strikethrough">
+                        <i class="fas fa-strikethrough"></i>
+                    </button>
+                    <button type="button" class="btn-tool" data-format="code" title="Code">
+                        <i class="fas fa-code"></i>
+                    </button>
+                    <button type="button" class="btn-tool" data-format="link" title="Link">
+                        <i class="fas fa-link"></i>
+                    </button>
+                    <div class="toolbar-divider"></div>
+                    <button type="button" class="btn-tool btn-secondary" id="load-draft" title="Load Draft">
+                        <i class="fas fa-folder-open"></i>
+                    </button>
+                    <button type="button" class="btn-tool btn-secondary" id="save-draft" title="Save Draft">
+                        <i class="fas fa-save"></i>
+                    </button>
+                </div>
+
+                <form id="post-form">
+                    <div class="form-group">
+                        <label for="post-text"><i class="fas fa-pen"></i> Content</label>
+                        <textarea id="post-text" rows="4" required placeholder="Write your post content here..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="post-media"><i class="fas fa-paperclip"></i> Media</label>
+                        <input type="file" id="post-media" accept="image/*,video/*,audio/*,.pdf,.doc,.docx,.txt,.zip,.rar">
+                        <div id="media-preview"></div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox">
+                            <input type="checkbox" id="disable-notification">
+                            <i class="fas fa-bell-slash"></i> Silent
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" id="protect-content">
+                            <i class="fas fa-shield-alt"></i> Protect
+                        </label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="preview-post">
+                            <i class="fas fa-eye"></i> Preview
+                        </button>
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-paper-plane"></i> Publish
+                        </button>
+                    </div>
+                </form>
+                <div id="post-status"></div>
+            </div>
+        </div>
+
+        <!-- Preview Modal -->
+        <div id="preview-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4><i class="fas fa-eye"></i> Preview</h4>
+                    <button class="modal-close"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div id="preview-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drafts Modal -->
+        <div id="drafts-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4><i class="fas fa-folder-open"></i> Saved Drafts</h4>
+                    <button class="modal-close"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div id="drafts-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
