@@ -18,14 +18,16 @@ body {
 .container {
     max-width: 420px;
     margin: 0 auto;
+    padding: 0.4rem;
 }
 
 /* Card Styles */
 .card {
     background: rgba(255, 255, 255, 0.96);
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 0.4rem;
+    box-shadow: 3px 3px 0px rgb(0 0 0);
     margin-bottom: 0.75rem;
+    border: 0.1rem solid rgb(0 0 0);
     overflow: hidden;
     backdrop-filter: blur(10px);
 }
@@ -33,11 +35,12 @@ body {
 .card-header {
     background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
     color: white;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem;
+    border-bottom: 0.1rem solid rgb(0 0 0);
 }
 
 .card-header h3 {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     margin: 0;
 }
@@ -323,7 +326,7 @@ body {
 
 .modal-content {
     background: white;
-    border-radius: 12px;
+    border-radius: 0.4rem;
     max-width: 380px;
     width: 100%;
     max-height: 80vh;
@@ -334,7 +337,7 @@ body {
 .modal-header {
     background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
     color: white;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
