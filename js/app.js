@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 .replace(/<code>(.*?)<\/code>/g, '<code style="background: #f1f3f4; padding: 2px 4px; border-radius: 3px;">$1</code>')
                 .replace(/\n/g, '<br>');
 
-            content += `<div style="margin-bottom: 0.75rem;">${previewText}</div>`;
+            content += `<div style="margin-bottom: 0.35rem;">${previewText}</div>`;
         }
 
         if (media) {

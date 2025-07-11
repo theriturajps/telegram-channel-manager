@@ -331,16 +331,18 @@ body {
     width: 100%;
     max-height: 80vh;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 0px rgb(0 0 0);
+    border: 0.1rem solid rgb(0 0 0);
 }
 
 .modal-header {
     background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 0.1rem solid rgb(0 0 0);
 }
 
 .modal-header h4 {
@@ -353,7 +355,7 @@ body {
     background: none;
     border: none;
     color: white;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     cursor: pointer;
     padding: 0;
     width: 1.8rem;
@@ -370,7 +372,7 @@ body {
 }
 
 .modal-body {
-    padding: 1rem;
+    padding: 0.5rem;
     max-height: 60vh;
     overflow-y: auto;
 }
